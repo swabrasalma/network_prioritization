@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+       {
+          "type": "shell",
+          "label": "C/C++: g++ build active file",
+          "command": "g++",
+          "args": [
+             "-g",
+             "src/tests/TrafficControllerTest.cpp",
+             "-IC:/msys64/mingw64/bin",
+             "-LC:/Users/Meddieek/Documents/SheDev/C++ Projects/googletest-main/googletest/cmake",
+             "-IC:/Users/Meddieek/Documents/SheDev/C++ Projects/googletest-main/googletest/include",
+             "-lgtest",
+             "-lgtest_main",
+             "-pthread",
+             "${file}",
+             "-o",
+             "${fileDirname}/${fileBasenameNoExtension}"
+          ],
+          "options": {
+             "cwd": "${workspaceFolder}"
+          },
+          "problemMatcher": ["$gcc"],
+          "group": {
+             "kind": "build",
+             "isDefault": true
+          }
+       }
+    ]
+ }
+ 

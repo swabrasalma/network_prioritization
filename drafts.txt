@@ -1,0 +1,68 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+// Define the traffic classes
+enum TrafficClass {
+    CLASS1,
+    CLASS2,
+    CLASS3,
+    UNKNOWN
+};
+
+// Function to inspect and classify incoming packets
+TrafficClass classifyPacket(const std::string& packet) {
+    // Perform packet inspection and classification based on specific criteria
+    
+    // Check packet header or content to determine the class
+    
+    // Example criteria: Check packet size
+    if (packet.size() <= 100) {
+        return CLASS1;
+    } else if (packet.size() <= 500) {
+        return CLASS2;
+    } else if (packet.size() <= 1000) {
+        return CLASS3;
+    }
+    
+    // If the packet doesn't match any criteria, classify as unknown
+    return UNKNOWN;
+}
+
+int main() {
+    // Simulating incoming packets
+    std::vector<std::string> incomingPackets = {
+        "Packet1",
+        "Packet2",
+        "Packet3",
+        "Packet4",
+        "Packet5"
+    };
+    
+    // Process each incoming packet and assign traffic class
+    for (const auto& packet : incomingPackets) {
+        TrafficClass trafficClass = classifyPacket(packet);
+        
+        // Process the traffic class
+        switch (trafficClass) {
+            case CLASS1:
+                std::cout << "Packet \"" << packet << "\" assigned to CLASS1." << std::endl;
+                // Perform actions specific to CLASS1
+                break;
+            case CLASS2:
+                std::cout << "Packet \"" << packet << "\" assigned to CLASS2." << std::endl;
+                // Perform actions specific to CLASS2
+                break;
+            case CLASS3:
+                std::cout << "Packet \"" << packet << "\" assigned to CLASS3." << std::endl;
+                // Perform actions specific to CLASS3
+                break;
+            case UNKNOWN:
+                std::cout << "Packet \"" << packet << "\" could not be classified." << std::endl;
+                // Perform actions for unknown packets
+                break;
+        }
+    }
+    
+    return 0;
+}
